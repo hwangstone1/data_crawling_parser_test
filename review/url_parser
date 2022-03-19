@@ -1,0 +1,37 @@
+***
+
+url.parse () 메서드는 URL 문자열을 가져와 구문 분석하고 주소의 각 부분을 속성으로 포함하는 URL 객체를 반환합니다.
+
+
+통사론:
+
+url.parse( urlString, parseQueryString, slashesDenoteHost)
+매개변수: 이 메서드는 위에서 언급하고 아래에 설명된 대로 세 개의 매개변수를 허용합니다.
+
+urlString: 구문 분석이 필요한 URL 문자열을 보유합니다.
+parseQueryString: 부울 값입니다. true로 설정하면 쿼리 속성이 쿼리스트링 모듈의 parse() 메서드에서 반환된 객체로 설정됩니다. false로 설정하면 반환된 URL 개체의 쿼리 속성이 구문 분석되지 않고 디코딩되지 않은 문자열이 됩니다. 기본값은 false입니다.
+slashesDenoteHost: 부울 값입니다. true로 설정하면 리터럴 문자열 // 뒤에서 다음 / 앞에 오는 첫 번째 토큰이 호스트로 해석됩니다. 예: //geeksforgeeks.org/web-technology에는 {경로 이름: '//geeksforgeeks.org/web-technology'}가 아닌 {host: 'geeksforgeeks.org', pathname: '/web-technology'} 결과가 포함됩니다. . 기본값은 false입니다.
+반환 값: url.parse () 메서드는 주소의 각 부분을 속성으로 포함하는 객체를 반환합니다.
+메모:
+
+
+urlString이 문자열이 아니면 TypeError가 발생합니다.
+auth 속성이 존재하지만 디코딩되지 않은 경우 URIError가 발생합니다.
+
+/// javaScripts ex///
+// Node program to demonstrate the
+// url.parse() method
+
+// Importing the module 'url'
+const url = require('url');
+
+// URL address
+const address = 'https://geeksforgeeks.org/projects?sort=newest&lang=nodejs';
+
+// Call parse() method using url module
+let urlObject = url.parse(address, true);
+
+console.log('URL Object returned after parsing');
+
+// Returns an URL Object
+console.log(urlObject)
