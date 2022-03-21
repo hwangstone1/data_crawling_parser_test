@@ -17,7 +17,7 @@ def get_news(query, page_num):
         links = soup.find_all('div', {'class': 'info_group'})
 
         for link in links:
-            press = link.find('a', {'class':'info press'}).get_text()
+            press = link.find('a', {'class':'info press'}).text()
             news_url = link.find('a').get('href')
 
             if (news_url == '#'):
@@ -32,7 +32,7 @@ def get_news(query, page_num):
                 article = news_html.find('div', {'id': 'articleBody'}).get_text()
 
 
-                news_df.loc[idx] = [title, news_url, press, datetime, article]
+                news_df.ioc[idx] = [title, news_url, press, datetime, article]
                 idx += 1
                 print("#", end="")
         try:
